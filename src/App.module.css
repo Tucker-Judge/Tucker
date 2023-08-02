@@ -1,0 +1,275 @@
+:root {
+  --width: calc(100% - 50px);
+}
+
+.container {
+  width: 100%;
+  height: 800px;
+  background-color: black;
+  margin: 0;
+}
+/* Introduction Start */
+.container nav {
+  margin-left: 25px;
+  margin-top: 0px;
+}
+.container nav svg {
+  margin-top: 20px;
+}
+.typingContainer {
+  font-size: 33px;
+  font-family: "Courier New", monospace;
+  color: rgb(255, 255, 255);
+  position: relative;
+  left: 40px;
+  bottom: 28px;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 10px;
+}
+
+.typingText, .typingCaret {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.typingText {
+  animation: typing 2s steps(40, end), 
+             blink-caret .75s step-end infinite;
+}
+
+.typingCaret {
+  animation: caret 2s steps(40, end), 
+             blink-caret .75s step-end infinite;
+  position: relative;
+  top: 1em;
+  width: 2px;
+  height: 2px;
+  background: black;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* @keyframes caret {
+  0%, 100% { background: transparent; }
+  50% { background: black; }
+} */
+@keyframes blink-caret {
+  0%, 100% { background: transparent; }
+  50% { background: black; }
+}
+.container ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+}
+.container ul li {
+  margin: 0 10px;
+}
+.mail:hover {
+  animation: fade 3s linear infinite;
+}
+@keyframes fade {
+  0% { transform: scale(1.0); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1.0); }
+}
+.linkedin {
+color: white;
+background-color: black;
+transition: color,background-color 2.0s ease-in-out;
+max-height: 32px;
+overflow: hidden;
+height: 32px !important;
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+border: 0;
+}
+.linkedin:hover {
+  background-color: white;
+  color: rgb(10, 102, 194);
+}
+
+.headshot {
+  width: 290px;
+  height: 180px;
+  margin-top: 45px;
+  margin-left: 25px;
+  background-color: rgb(255, 172, 172);
+  color: #0c2e44;
+}
+.aboutMe {
+  width: 290px;
+  height: 180px;
+  position: relative;
+  bottom: 40px;
+  left: 55px;
+  background-color: whitesmoke;
+  color: #0c2e44;
+}
+/* Introduction End */
+
+/* Affiliations */
+
+.affiliationHeader {
+  display: flex;
+  justify-content: center;
+}
+.affiliationHeader p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  bottom: 10px;
+  font-size: 24px;
+  color: rgb(0,143,17)
+}
+.affiliationBg {
+  display:block;
+  width: var(--width);
+  margin: 0 25px;
+  color: #0c2e44;
+  text-align: center;
+  background-image: url("https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+.affiliationBg h3 {
+  width: 50%;
+  background-color: rgb(255, 255, 255);
+}
+.affiliationBg img {
+  margin-top: 20px;
+}
+
+.affiliationBg button {
+  border-radius: 8px;
+  border: 4px solid white;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  animation: colorSwitch 3s infinite;
+  animation-play-state: paused;
+  color: #0c2e44;
+}
+
+.affiliationBg button:hover {
+  animation-play-state: running;
+}
+@keyframes colorSwitch {
+  0% {
+    border-top-color: red;
+    border-right-color: green;
+    border-bottom-color: blue;
+    border-left-color: yellow;
+  }
+  25% {
+      border-top-color: yellow;
+      border-right-color: red;
+      border-bottom-color: green;
+      border-left-color: blue;
+  }
+  50% {
+      border-top-color: blue;
+      border-right-color: yellow;
+      border-bottom-color: red;
+      border-left-color: green;
+  }
+  75% {
+      border-top-color: green;
+      border-right-color: blue;
+      border-bottom-color: yellow;
+      border-left-color: red;
+  }
+  100% {
+      border-top-color: red;
+      border-right-color: green;
+      border-bottom-color: blue;
+      border-left-color: yellow;
+  }
+
+}
+
+.affiliationBg ul{
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0 ;
+}
+.affiliationBg ul li { 
+  width: 100%;
+  margin: 10px 0px;
+  font-size: 14px;
+}
+/* Affiliations End */
+
+/* Projects */
+
+.projects {
+  background-color: black;
+  text-align: center;
+  padding: 25px 0 20px;
+  align-content: center;
+}
+
+.firstProject {
+  background-color: whitesmoke;
+  height: fit-content;
+  width: var(--width);
+  margin: 0 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color:#0c2e44;
+}
+.firstProject h2 {
+  align-self: baseline;
+  margin-left: 30px;
+  margin-top: 18.72px;
+  font-size: 34px;
+}
+.firstProject img {
+  clip-path: circle(20px at center);
+  margin-bottom: 20px;
+  transform: scale(2.0)
+}
+
+
+
+
+/* Projects End */
+
+
+/* Boredom - Curiosity */
+
+/* for interludes */
+.takingBreak {
+  position:absolute;
+  top: 10%;
+  left: 10%;
+  font-size: 80px;
+  animation: break 1s linear infinite;
+}
+.takingBreak div {
+  font-size: 20px;
+  background-color: transparent;
+}
+@keyframes break {
+  0% {color: red;}
+    25% {color: blue;}
+    50% {color: green;}
+    75% {color: yellow;}
+    100% {color: red;}
+}
+
+h2 {
+  margin-block-start: 0;
+}
