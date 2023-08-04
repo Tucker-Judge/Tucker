@@ -1,7 +1,9 @@
 :root {
   --width: calc(100% - 50px);
 }
-
+img {
+  overflow-clip-margin: content-box;
+}
 .container {
   width: 100%;
   height: 800px;
@@ -52,11 +54,6 @@
   from { width: 0; }
   to { width: 100%; }
 }
-
-/* @keyframes caret {
-  0%, 100% { background: transparent; }
-  50% { background: black; }
-} */
 @keyframes blink-caret {
   0%, 100% { background: transparent; }
   50% { background: black; }
@@ -112,6 +109,7 @@ border: 0;
   background-color: whitesmoke;
   color: #0c2e44;
 }
+/* figure tag what the ???????? */
 /* Introduction End */
 
 /* Affiliations */
@@ -129,8 +127,7 @@ border: 0;
 }
 .affiliationBg {
   display:block;
-  width: var(--width);
-  margin: 0 25px;
+  width: 100%;
   color: #0c2e44;
   text-align: center;
   background-image: url("https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg");
@@ -140,13 +137,59 @@ border: 0;
 }
 .affiliationBg h3 {
   width: 50%;
+  padding-top: 10px;
   background-color: rgb(255, 255, 255);
 }
-.affiliationBg img {
+.imageBg {
+  width: 60%;
+  display: block; 
+  margin:auto;
+  height: fit-content;
+  background-color: rgb(255, 150, 150);
+  margin-bottom: 20px;
+}
+.imageContainer{
+  display: block;
+  margin:auto;
+  max-width: 50px;
+  padding: 0 50px 20px;
+  height: 150px;
+  overflow: hidden;
+  background-color: white;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+.imageContainer img {
   margin-top: 20px;
+  width: 300px;
+  height: 200px;
 }
 
 .affiliationBg button {
+  border-radius: 8px;
+  border: 2px solid rgb(0, 0, 0);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  color: #0c2e44;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.1s ease-in-out;
+}
+.affiliationBg button:active {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  transform: translateY(3px);
+}
+@keyframes borderLight {
+  /* border */
+}
+
+/* Computer Affiliation Specific */
+/* .affiliationBg button {
   border-radius: 8px;
   border: 4px solid white;
   padding: 0.6em 1.2em;
@@ -159,8 +202,7 @@ border: 0;
   animation-play-state: paused;
   color: #0c2e44;
 }
-
-.affiliationBg button:hover {
+ .affiliationBg button:hover {
   animation-play-state: running;
 }
 @keyframes colorSwitch {
@@ -194,8 +236,7 @@ border: 0;
       border-bottom-color: blue;
       border-left-color: yellow;
   }
-
-}
+} */
 
 .affiliationBg ul{
   display: flex;
@@ -208,6 +249,7 @@ border: 0;
   width: 100%;
   margin: 10px 0px;
   font-size: 14px;
+  border-top: 4px solid black;
 }
 /* Affiliations End */
 
@@ -216,15 +258,15 @@ border: 0;
 .projects {
   background-color: black;
   text-align: center;
-  padding: 25px 0 20px;
+  padding: 20px 0;
   align-content: center;
 }
 
 .firstProject {
   background-color: whitesmoke;
   height: fit-content;
-  width: var(--width);
-  margin: 0 25px;
+  width: 100%;
+  margin: 0 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -234,19 +276,95 @@ border: 0;
   align-self: baseline;
   margin-left: 30px;
   margin-top: 18.72px;
-  font-size: 34px;
+  font-size: 22px;
 }
 .firstProject img {
   clip-path: circle(20px at center);
   margin-bottom: 20px;
   transform: scale(2.0)
 }
-
-
-
-
 /* Projects End */
 
+/* End of form */
+.endForm {
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+  margin: 0 25px;
+}
+.endForm label {
+  text-align: center;
+}
+
+.endForm input {
+  margin: 10px 0;
+  padding: 5px 10px;
+  line-height: 2em;
+  height: 40px;
+  font-size: 16px;
+}
+.endForm div {
+  width: 100%;
+  margin-top:10px;
+  background-color: #3b3b3b;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+
+.endForm div textarea {
+  line-height: 2em;
+  width: 264px;
+  padding: 5px 10px;
+  font-size: 16px;
+  resize: none;
+}
+.endForm div p {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.515);
+  line-height: 1em;
+  margin: 8px 0
+}
+.endForm button {
+  background-color: #DAA520;
+  width: fit-content;
+  padding: 12px 48px;
+  border-radius: 4px;
+  align-self: center;
+  margin: 20px 0;
+  font-size: 1em;
+}
+.endForm button:active {
+  background-color: navajowhite;
+}
+/* Form --end */
+
+/* popup container */
+.popupContainer {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: 9998;
+  overflow: hidden;
+  background-color: rgb(255, 65, 65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.insidePop {
+  height: 50vh;
+  width: 50vw;
+  background-color: bisque;
+  z-index: 9999;
+}
+.insidePop h2 {
+  margin: 20px 0;
+}
+.insidePop p {
+  margin: 20px 15px;
+}
+
+
+/* popup container -- end */
 
 /* Boredom - Curiosity */
 
