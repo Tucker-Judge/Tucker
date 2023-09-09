@@ -7,6 +7,3 @@ The MIT license allows you to take any and all code to repurpose for any and all
 Questions can reach me at tucker.judge@yahoo.com.
 =======
 React Personal Website
-
-<!--  -->
->>>>>>> b746d7f (form submission cleaner)

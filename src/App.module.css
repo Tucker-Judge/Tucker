@@ -1,5 +1,7 @@
 :root {
   --width: calc(100% - 50px);
+  --headShotRight: calc(20%);
+  --headShotLeft: calc(8%);
 }
 img {
   overflow-clip-margin: content-box;
@@ -10,6 +12,7 @@ img {
   background-color: black;
   margin: 0;
 }
+
 /* Introduction Start */
 .container nav {
   margin-left: 25px;
@@ -41,15 +44,15 @@ img {
 }
 
 .typingCaret {
+  /* rid of one of these */
   animation: caret 2s steps(40, end), 
              blink-caret .75s step-end infinite;
   position: relative;
   top: 1em;
   width: 2px;
   height: 2px;
-  background: black;
+  display: black;
 }
-
 @keyframes typing {
   from { width: 0; }
   to { width: 100%; }
@@ -77,11 +80,11 @@ img {
 }
 .linkedin {
 color: white;
-background-color: black;
+background-color: transparent;
 transition: color,background-color 2.0s ease-in-out;
 max-height: 32px;
 overflow: hidden;
-height: 32px !important;
+height: 32px;
 box-sizing: border-box;
 padding: 0;
 margin: 0;
@@ -93,21 +96,28 @@ border: 0;
 }
 
 .headshot {
-  width: 290px;
-  height: 180px;
+  width: 90vw;
+  /* height: 180px; */
+  aspect-ratio: 5/3;
   margin-top: 45px;
-  margin-left: 25px;
+  /* margin-left: 25px; */
+  margin-left: var(--headShotLeft);
   background-color: rgb(255, 172, 172);
   color: #0c2e44;
 }
 .aboutMe {
-  width: 290px;
+  width: 250px;
   height: 180px;
   position: relative;
-  bottom: 40px;
-  left: 55px;
-  background-color: whitesmoke;
-  color: #0c2e44;
+  bottom: 55px;
+  left: var(--headShotRight);
+  /* left: 20%; */
+  background-color: rgb(0, 0, 0);
+  aspect-ratio: 3/5;
+}
+.aboutMe p {
+  color: whitesmoke;
+  padding: 15px;
 }
 /* figure tag what the ???????? */
 /* Introduction End */
@@ -123,7 +133,8 @@ border: 0;
   margin-block-end: 0;
   bottom: 10px;
   font-size: 24px;
-  color: rgb(0,143,17)
+  color: rgb(0, 110, 24);
+  text-shadow: 8px -4px 4px 2px rgb(0, 110, 24)
 }
 .affiliationBg {
   display:block;
@@ -145,7 +156,7 @@ border: 0;
   display: block; 
   margin:auto;
   height: fit-content;
-  background-color: rgb(255, 150, 150);
+  background-color: rgb(255, 255, 255);
   margin-bottom: 20px;
 }
 .imageContainer{
@@ -256,7 +267,7 @@ border: 0;
 /* Projects */
 
 .projects {
-  background-color: black;
+  background-color: #282626;
   text-align: center;
   padding: 20px 0;
   align-content: center;
@@ -285,6 +296,9 @@ border: 0;
 }
 /* Projects End */
 
+.formContainer {
+  position: none;
+}
 /* End of form */
 .endForm {
   display: flex;
@@ -304,19 +318,24 @@ border: 0;
   font-size: 16px;
 }
 .endForm div {
+  box-sizing: border-box;
   width: 100%;
   margin-top:10px;
   background-color: #3b3b3b;
   border: 1px solid grey;
   border-radius: 4px;
+  overflow: hidden;
 }
 
 .endForm div textarea {
+  margin: 0;
+  box-sizing: border-box;
   line-height: 2em;
-  width: 264px;
+  width: inherit;
   padding: 5px 10px;
   font-size: 16px;
   resize: none;
+  background-color: transparent;
 }
 .endForm div p {
   text-align: center;
@@ -338,26 +357,47 @@ border: 0;
 }
 /* Form --end */
 
+/* Responsive Design */
+@media (min-width: 650px) {
+  .endForm {
+    align-self: center;
+    margin: auto;
+    max-width: 600px;
+  }
+}
+@media (min-width: 1000px) {
+  .endForm {
+    align-self: center;
+    margin: auto;
+    max-width: 850px;
+  }
+  .endForm button {
+    width: 50%;
+    font-size: 2rem;
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+}
 /* popup container */
 .popupContainer {
-  position: fixed;
+  position: absolute;
   height: 100vh;
   width: 100vw;
   z-index: 9998;
   overflow: hidden;
-  background-color: rgb(255, 65, 65);
+  background-color: rgb(211, 211, 211);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .insidePop {
-  height: 50vh;
-  width: 50vw;
   background-color: bisque;
   z-index: 9999;
+  margin: 0 25px;
+  height: 100%;
 }
 .insidePop h2 {
-  margin: 20px 0;
+  margin: 40px 25px 20px;
 }
 .insidePop p {
   margin: 20px 15px;
